@@ -1,0 +1,16 @@
+name: workflow automerge
+
+on: [push]
+
+jobs:
+  pr:
+    name: Create Pull Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v2
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          branch: main
+          labels: automerge
